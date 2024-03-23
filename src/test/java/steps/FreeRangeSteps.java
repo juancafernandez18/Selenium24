@@ -14,7 +14,7 @@ public class FreeRangeSteps {
 
     @When("I go to {word} using the navigation bar")
     public void navigationBarUse(String section) {
-        landingPage.clickOnSectionNavigationBar(section);
+        landingPage.clickOnSectionNavigationBar(section);//asfd
     }
 
 }
