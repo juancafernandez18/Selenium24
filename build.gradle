@@ -9,8 +9,16 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'io.qameta.allure' version '2.11.1'
 }
+allure{
+    adapter.autoconfigure = true
+    version '2.20.1'
 
+    useJUnit5 {
+        version = '2.20.1'
+    }
+}
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -34,9 +42,24 @@ dependencies {
 
     // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
     implementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+    // Allure Cucumber4 jvm
+    testImplementation 'io.qameta.allure:allure-cucumber7-jvm:2.21.0'
 
 }
 
 
-tasks.named('test') { 
-systemProperty "cucumber.options", System.getProperty("cucumber.options")}
+
+tasks.named('test') {
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+    systemProperties System.getProperties();
+}
+task CucumberTest(type:Test) {
+    systemProperties System.getProperties()
+    def tag = (systemProperties.get('tags') == null) ? "not @skip" : systemProperties.get('tags') + " and not @skip"
+    systemProperty "cucumber.filter.tags", tag
+    systemProperty "cucumber.publish.quiet", "true"
+    dependsOn assemble, testClasses
+    jvmArgs "-noverify"
+    include '**/**/**.class'
+}
+

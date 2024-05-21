@@ -1,20 +1,24 @@
 package steps;
 
 import io.cucumber.java.en.*;
+import pages.Login.LoginPage;
 import pages.PaginaPrincipal;
 
 public class FreeRangeSteps {
 
-    PaginaPrincipal landingPage = new PaginaPrincipal();
+    LoginPage loginPage = new LoginPage();
 
-    @Given("I navigate to www.freerangetesters.com")
+    @Given("I navigate to MySysacad")
     public void iNavigateToFRT() {
-        landingPage.navigateToFreeRangeTesters();
+        loginPage.navigateToSysacad();
+
+
+    }
+    @When("I take the button Acceder")
+        public void clickEnBotonAcceder() {loginPage.validaBotonAcceder();//
+
+
     }
 
-    @When("I go to {word} using the navigation bar")
-    public void navigationBarUse(String section) {
-        landingPage.clickOnSectionNavigationBar(section);//asfd
-    }
 
 }
