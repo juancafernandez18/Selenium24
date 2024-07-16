@@ -2,12 +2,16 @@ package pages;
 
 // Importaciones necesarias
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,18 +31,28 @@ public class BasePage {
      * el 'driver' estático
      * WebDriverWait se usa para poner esperas explícitas en los elementos web
      */
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     /*
      * Configura el WebDriver para Chrome usando WebDriverManager.
      * WebDriverManager va a estar descargando y configurando automáticamente el
      * driver del navegador
      */
+
     static {
         WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        //Create a map to store  preferences
+        Map<String, Object> prefs = new HashMap<String, Object>();
 
+        //add key and value to map as follow to switch off browser notification
+        //Pass the argument 1 to allow and 2 to block
+        prefs.put("profile.default_content_setting_values.notifications", 1);
+
+        options.addArguments("--start-maximized");
+        options.setExperimentalOption("prefs", prefs);
         // Inicializa la variable estática 'driver' con una instancia de ChromeDriver
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
     }
 
     /*
@@ -92,6 +106,25 @@ public class BasePage {
         List<WebElement> dropdownOptions = dropdown.getOptions();
 
         return dropdownOptions.size();
+    }
+    public void navegarOtraPestana(String link){
+        clickElement(link);
+        String mainTab = driver.getWindowHandle();
+        String newTab = "";
+        System.out.println("estoy aca");
+        Set<String> handles = driver.getWindowHandles();
+        for (String actual : handles){
+            System.out.println("--Handle ID:" + actual);
+
+            if (!actual.equalsIgnoreCase(mainTab)){
+                System.out.println("Cambiando tab");
+                driver.switchTo().window(actual);
+                newTab = actual;
+
+            }
+
+        }
+
     }
 
 }

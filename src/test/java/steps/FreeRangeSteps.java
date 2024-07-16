@@ -9,16 +9,25 @@ public class FreeRangeSteps {
     LoginPage loginPage = new LoginPage();
 
     @Given("I navigate to MySysacad")
-    public void iNavigateToFRT() {
+    public void iNavigateToSysacad() {
         loginPage.navigateToSysacad();
 
 
     }
-    @When("I take the button Acceder")
-        public void clickEnBotonAcceder() {loginPage.validaBotonAcceder();//
+    @Then("I take the button Acceder")
+        public void validoBotonAcceder() {loginPage.validaBotonAcceder();//
+
+
+
+    }
+    @Then("The message is Datos Invalidos")
+    public void ControloDatosInvalidos(){loginPage.ValidarMensajeDeDatosErroneos();
+    }
+
+
+
 
 
     }
 
 
-}

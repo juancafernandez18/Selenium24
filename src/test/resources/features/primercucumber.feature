@@ -1,14 +1,7 @@
 @cursos
-Feature: Navigation bar
-    To see the subpages
-    Without logging in
-    I can click the navigation bar links
+Feature: Ingreso a sysacad e inento ingresar sin credenciales
 
-    Scenario Outline: I can access the subpages through the navigation bar
+    Scenario: Ingreso a sysacad
         Given I navigate to MySysacad
-        When I take the button Acceder
-
-
-
-            
-  
+        When I ingress my pass
+        Then I take the button Acceder
