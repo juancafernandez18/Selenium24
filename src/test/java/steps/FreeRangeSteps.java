@@ -3,12 +3,15 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import pages.PaginaPrincipal;
+import pages.ProductosPage;
 
 public class FreeRangeSteps {
 
     PaginaPrincipal homepage = new PaginaPrincipal();
+    ProductosPage productos = new ProductosPage();
 
     @Given("Navego a saucedemo.com")
     public void iNavigateToSauceDemo(){
@@ -20,9 +23,16 @@ public class FreeRangeSteps {
 
         homepage.loginSauceDemo("standard_user","secret_sauce");
     }
-    @Given("el usuario ingresa un dato incorrecto")
+    @Then("Visualizo la pagina de productos")
+    public void visualizoLosProductos(){
+
+        String titulo = productos.obtenerTituloProductos();
+        Assert.assertEquals(titulo,"Products","No coincide el titulo esperado");
+    }
+
+    @When("el usuario ingresa un dato incorrecto")
     public void elUsuarioIngresaDatosIncorrectos(){
-        homepage.navigateToSauceDemo();
+        //homepage.navigateToSauceDemo();
         homepage.loginSauceDemo("juan","contraseña");
     }
 
@@ -30,8 +40,6 @@ public class FreeRangeSteps {
     public void seMuestraElError(){
         String msjerror = homepage.obtenerMensajeDeError();
         Assert.assertEquals(msjerror,"Epic sadface: Username and password do not match any user in this service","No coincide el mensaje esperado");
-
-
     }
 
 
