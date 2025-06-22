@@ -7,9 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+public class FreeRangeTest {
 
-
-public class primerprueba {
     private WebDriver driver;
 
     @BeforeMethod
