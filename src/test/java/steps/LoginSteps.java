@@ -3,12 +3,11 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import pages.PaginaPrincipal;
 import pages.ProductosPage;
 
-public class FreeRangeSteps {
+public class LoginSteps {
 
     PaginaPrincipal homepage = new PaginaPrincipal();
     ProductosPage productos = new ProductosPage();
@@ -19,7 +18,7 @@ public class FreeRangeSteps {
         homepage.navigateToSauceDemo();
     }
     @When("Realizo un login correcto")
-    public void realizoLoginCorrecto(){
+    public void realizaLogin(){
 
         homepage.loginSauceDemo("standard_user","secret_sauce");
     }

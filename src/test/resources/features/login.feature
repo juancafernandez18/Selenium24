@@ -1,9 +1,9 @@
 @login
-Feature: Login
+Feature: Login a SauceDemo.com
 
   Background:
     Given Navego a saucedemo.com
-
+@logincorrecto
   Scenario: El usuario realiza el login
 
     When Realizo un login correcto

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -31,9 +32,10 @@ public class BasePage {
      */
     static {
         WebDriverManager.chromedriver().setup();
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
         //Inicializa la variable estática 'driver' con una instancia de ChromeDriver
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
     }
 
     /*
