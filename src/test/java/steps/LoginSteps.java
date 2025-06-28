@@ -26,7 +26,7 @@ public class LoginSteps {
     public void visualizoLosProductos(){
 
         String titulo = productos.obtenerTituloProductos();
-        Assert.assertEquals(titulo,"Products","No coincide el titulo esperado");
+        Assert.assertEquals(titulo,"Productos","No coincide el titulo esperado");
     }
 
     @When("el usuario ingresa un dato incorrecto")
