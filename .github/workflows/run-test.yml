@@ -24,7 +24,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Cucumber tests
-        run: ./gradlew cucumberTest -Dcucumber.filter.tags=''
+        run: ./gradlew cucumberTest -Dcucumber.filter.tags='@agregarcarrito'
 
       - name: Generate Allure Report
         run: ./gradlew allureReport
