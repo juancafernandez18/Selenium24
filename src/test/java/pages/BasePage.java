@@ -34,6 +34,7 @@ public class BasePage {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
+        options.addArguments("--headless=new");
         //Inicializa la variable estática 'driver' con una instancia de ChromeDriver
         driver = new ChromeDriver(options);
     }
