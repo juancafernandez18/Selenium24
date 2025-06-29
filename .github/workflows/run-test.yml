@@ -23,8 +23,8 @@ jobs:
       - name: Grant execute permissions to Gradle wrapper
         run: chmod +x gradlew
 
-      - name: Run Cucumber tests
-        run: ./gradlew cucumberTest -Dcucumber.filter.tags='@agregarcarrito'
+      - name: Run Cucumber tests with @login tag
+        run: ./gradlew cucumberTest --continue -Dcucumber.filter.tags='@agregarcarrito'
 
       - name: Generate Allure Report
         run: ./gradlew allureReport
