@@ -12,7 +12,7 @@ public class ProductosSteps {
 
     PaginaPrincipal homepage = new PaginaPrincipal();
     ProductosPage productos = new ProductosPage();
-    String nombreproducto;
+    String nombreproducto; //variable de instancia
 
 
     @Given("Navego a saucedemo")
