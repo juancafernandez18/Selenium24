@@ -24,7 +24,7 @@ public class BasePage {
      * Se inicializa inmediatamente con una instancia dew WebDriverWait utilizando el 'driver' estático
      * WebDriverWait se usa para poner esperas explícitas en los elementos web
      */
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     /*
      * Configura el WebDriver para Chrome usando WebDriverManager.
@@ -34,7 +34,11 @@ public class BasePage {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        options.addArguments("--headless=new");
+        String headless = System.getProperty("headless", "false");
+        if (headless.equalsIgnoreCase("true")) {
+            options.addArguments("--headless=new");
+        }
+
         //Inicializa la variable estática 'driver' con una instancia de ChromeDriver
         driver = new ChromeDriver(options);
     }
