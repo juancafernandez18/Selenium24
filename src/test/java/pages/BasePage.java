@@ -2,6 +2,8 @@ package pages;
 
 // Importaciones necesarias
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +35,9 @@ public class BasePage {
     static {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        // Desactiva el gestor de contraseñas y las credenciales automáticas
         options.addArguments("--start-maximized");
+        options.addArguments("--incognito");
         String headless = System.getProperty("headless", "false");
         if (headless.equalsIgnoreCase("true")) {
             options.addArguments("--headless=new");
