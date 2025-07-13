@@ -45,6 +45,9 @@ public class ProductosSteps {
         String nombreProductoEnCarro = productos.obtenerNombreDelProductoEnCarrito();
         Assert.assertEquals(nombreproducto,nombreProductoEnCarro,"No coincide el nombre del producto elegido ");
 
+        String botonCheckoutTexto = productos.obtenerTextoBotonCheckout();
+        Assert.assertEquals(botonCheckoutTexto,"Checkoutd","No coincide el texto esperado del boton ");
+
     }
 
 }

@@ -1,4 +1,4 @@
-@agregarcarrito
+@agregarcarritos
 Feature: agrega productos al carrito de compras
 
   Background:

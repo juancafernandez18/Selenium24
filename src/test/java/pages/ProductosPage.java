@@ -15,6 +15,7 @@ public class ProductosPage extends BasePage{
     private String tituloCarrito = "//span[@class='title']";
     private String nombreProducto = "//div[normalize-space()='Sauce Labs Backpack']";
     private String nombreProductoEnCarro = "//div[normalize-space()='Sauce Labs Backpack']";
+    private  String btnCheckOut = "//button[@id='checkout']";
 
 
 
@@ -30,12 +31,14 @@ public class ProductosPage extends BasePage{
     public String obtenerNombreDelProductoEnCarrito() {
         return driver.findElement(By.xpath(nombreProductoEnCarro)).getText();
     }
-
     public void clickBotonAddToCard(){
         clickElement(btnAddToCard);
     }
     public void clickBotonCarrito(){
         clickElement(btnCarrito);
+    }
+    public String obtenerTextoBotonCheckout() {
+        return driver.findElement(By.xpath(btnCheckOut)).getText();
     }
 
 }
