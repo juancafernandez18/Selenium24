@@ -17,6 +17,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Ejecuta los tests con el tag especificado y sin headless
+                 sh 'chmod +x ./gradlew'
                 sh "./gradlew cucumberTest -Dcucumber.filter.tags='@agregarcarritos' -Dheadless=false"
             }
         }
