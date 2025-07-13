@@ -9,11 +9,10 @@ Este proyecto implementa un framework de automatización de pruebas funcionales 
 - 🔹 Java 17
 - 🔹 Gradle 8.0.2
 - 🔹 Selenium WebDriver 4.18.1
-- 🔹 Cucumber JVM 7.x
-- 🔹 JUnit 5
-- 🔹 WebDriverManager
+- 🔹 Cucumber
+- 🔹 JUnit
 - 🔹 Allure Reports
-- 🔹 Maven Surefire / Gradle Test Plugin
+
 
 ---
 
@@ -28,7 +27,7 @@ Configurar las variables de Entorno JAVA_HOME y PATH: How to - Instalar y Config
 
 <img width="645" height="644" alt="image" src="https://github.com/user-attachments/assets/9516aaf1-1da1-47a6-8063-81cb10669d90" />
 
-Instalacion de IDE IntelliJ
+📦Instalacion de IDE IntelliJ
 Descargar la version 2022 1.4: IntelliJ Download
 Buscar la versión 2022.1.4 Community Windows X64(.exe)
 Instalar IntelliJ
@@ -42,6 +41,7 @@ Se debe descargar los siguientes Plugins: Gherkin y Cucumber for Java.
 
 
 ▶️ Ejecutar pruebas
+
 <img width="1077" height="768" alt="image" src="https://github.com/user-attachments/assets/4b73bffd-e0a4-47fa-bd0e-6df2295daa1a" />
 
 📊 Visualización de Reportes
