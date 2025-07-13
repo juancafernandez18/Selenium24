@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clona el repositorio desde GitHub
-                git 'https://github.com/usuario/tu-repo.git'
+                git 'https://github.com/juancafernandez18/Selenium24.git'
             }
         }
 
