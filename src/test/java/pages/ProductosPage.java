@@ -1,6 +1,12 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 public class ProductosPage extends BasePage{
     public ProductosPage(){
@@ -17,7 +23,7 @@ public class ProductosPage extends BasePage{
     private String nombreProductoEnCarro = "//div[normalize-space()='Sauce Labs Backpack']";
     private  String btnCheckOut = "//button[@id='checkout']";
 
-
+    private String btnBurgerMenu = "//button[@id='react-burger-menu-btn']";
 
     public String obtenerTituloProductos() {
         return driver.findElement(By.xpath(tituloProductos)).getText();
@@ -40,5 +46,20 @@ public class ProductosPage extends BasePage{
     public String obtenerTextoBotonCheckout() {
         return driver.findElement(By.xpath(btnCheckOut)).getText();
     }
+
+    public void clickEnMenuBurger(){
+        clickElement(btnBurgerMenu);
+    }
+
+    public int cantidadDeItemsMenuBurger() {
+        // Esperamos a que el nav del menú esté visible
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nav[@class='bm-item-list']")));
+
+        // Obtenemos todos los <a> dentro del menú
+        List<WebElement> items = driver.findElements(By.xpath("//nav[@class='bm-item-list']/a"));
+        return items.size();
+    }
+
 
 }
