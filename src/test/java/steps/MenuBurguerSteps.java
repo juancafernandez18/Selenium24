@@ -12,15 +12,8 @@ public class MenuBurguerSteps {
     ProductosPage menu = new ProductosPage();
     PaginaPrincipal homepage = new PaginaPrincipal();
 
-    @Given("Navego")
-    public void iNavigateToSauceDemo(){
-        homepage.navigateToSauceDemo();
-    }
-    @When("login")
-    public void realizoLoginCorrecto(){
-        homepage.loginSauceDemo("standard_user","secret_sauce");
-    }
-    @And("hace click en menu hamburguesa")
+
+    @Given("hace click en menu hamburguesa")
     public void haceClickEnMenuBurger(){
         menu.clickEnMenuBurger();
     }
